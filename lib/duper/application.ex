@@ -7,13 +7,15 @@ defmodule Duper.Application do
 
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: Duper.Worker.start_link(arg)
-      # {Duper.Worker, arg}
+      Duper.Results,
+      { Duper.PathFinder, "/Users/regismartin/Dropbox" },
+      Duper.WorkerSupervisor,
+      { Duper.Gatherer, 1 }
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Duper.Supervisor]
+    opts = [strategy: :one_for_all, name: Duper.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end

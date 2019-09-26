@@ -1,6 +1,12 @@
 # Duper
 
-**TODO: Add description**
+Duplicate-file finder as per chapter 19 of Programming Elixir >= 1.6 book
+
+Run with:
+```shell
+$ time mix run --no-halt >dups
+$ wc -l dups
+```
 
 ## Installation
 
