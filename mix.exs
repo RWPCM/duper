@@ -15,7 +15,7 @@ defmodule Duper.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Duper.Application, []}
+      mod: {Duper.Application, {"/users/regismartin/Dropbox", 4}}
     ]
   end
 

@@ -5,12 +5,12 @@ defmodule Duper.Application do
 
   use Application
 
-  def start(_type, _args) do
+  def start(_type, {root, number_of_workers}) do
     children = [
       Duper.Results,
-      { Duper.PathFinder, "/Users/regismartin/Dropbox" },
+      { Duper.PathFinder, root },
       Duper.WorkerSupervisor,
-      { Duper.Gatherer, 1 }
+      { Duper.Gatherer, number_of_workers }
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
